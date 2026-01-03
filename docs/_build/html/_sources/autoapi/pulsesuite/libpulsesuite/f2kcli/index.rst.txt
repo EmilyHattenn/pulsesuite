@@ -1,0 +1,88 @@
+:py:mod:`pulsesuite.libpulsesuite.f2kcli`
+=========================================
+
+.. py:module:: pulsesuite.libpulsesuite.f2kcli
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.f2kcli.F2kcli
+
+
+
+
+.. py:class:: F2kcli
+
+
+   Bases: :py:obj:`ContextManager`
+
+   Fortran 200x Command Line Interface (Python version)
+   Provides methods to access command-line arguments in a way similar to the Fortran F2KCLI module.
+
+   .. method:: getCommand(command: Optional[list] = None, length: Optional[list] = None, status: Optional[list] = None) -> None
+
+      Returns the entire command by which the program was invoked.
+
+   .. method:: commandArgumentCount() -> int
+
+      Returns the number of command arguments (excluding the program name).
+
+   .. method:: getCommandArgument(number: int, value: Optional[list] = None, length: Optional[list] = None, status: Optional[list] = None) -> None
+
+      Returns a specific command argument by index.
+
+
+   .. py:method:: __enter__() -> F2kcli
+
+      Return `self` upon entering the runtime context.
+
+
+   .. py:method:: __exit__(exc_type, exc_val, exc_tb) -> Optional[bool]
+
+      Raise any exception triggered within the runtime context.
+
+
+   .. py:method:: getCommand(command: Optional[list] = None, length: Optional[list] = None, status: Optional[list] = None) -> None
+      :staticmethod:
+
+      Returns the entire command by which the program was invoked.
+
+      :param command: A single-element list to store the command string.
+      :type command: list, optional
+      :param length: A single-element list to store the length of the command string.
+      :type length: list, optional
+      :param status: A single-element list to store the status code (0 for success).
+      :type status: list, optional
+
+
+   .. py:method:: commandArgumentCount() -> int
+      :staticmethod:
+
+      Returns the number of command arguments (excluding the program name).
+
+      :returns: Number of command-line arguments (not counting the program name).
+      :rtype: int
+
+
+   .. py:method:: getCommandArgument(number: int, value: Optional[list] = None, length: Optional[list] = None, status: Optional[list] = None) -> None
+      :staticmethod:
+
+      Returns a command argument by index.
+
+      :param number: The argument index (0 for program name, 1..N for arguments).
+      :type number: int
+      :param value: A single-element list to store the argument value.
+      :type value: list, optional
+      :param length: A single-element list to store the length of the argument value.
+      :type length: list, optional
+      :param status: A single-element list to store the status code (0 for success, 1 for out-of-range).
+      :type status: list, optional
+
+
+

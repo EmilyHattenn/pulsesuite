@@ -1,0 +1,115 @@
+:py:mod:`pulsesuite.libpulsesuite.integrator`
+=============================================
+
+.. py:module:: pulsesuite.libpulsesuite.integrator
+
+.. autoapi-nested-parse::
+
+   Integrator module (Python version)
+   ==================================
+   High-performance ODE integrators for scientific computing, ported from Fortran.
+
+   Implements: odeint, rkqs, rkck, rk4, idiot, 3D-versions and related routines.
+
+   Author: Rahul R. Sah
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.integrator.with_guardrails
+   pulsesuite.libpulsesuite.integrator.odeint_dp
+   pulsesuite.libpulsesuite.integrator.odeint_dpc
+   pulsesuite.libpulsesuite.integrator.dummy_jacobian_dp
+   pulsesuite.libpulsesuite.integrator.dummy_jacobian_dpc
+   pulsesuite.libpulsesuite.integrator.simpleint_dp
+   pulsesuite.libpulsesuite.integrator.simpleint_dpc
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.integrator.SAFETY
+   pulsesuite.libpulsesuite.integrator.PGROW
+   pulsesuite.libpulsesuite.integrator.PSHRNK
+   pulsesuite.libpulsesuite.integrator.ERRCON
+   pulsesuite.libpulsesuite.integrator.TINY
+   pulsesuite.libpulsesuite.integrator.MAXSTP
+   pulsesuite.libpulsesuite.integrator.KMAXX
+
+
+.. py:function:: with_guardrails(fn)
+
+
+.. py:data:: SAFETY
+   :value: 0.9
+
+   
+
+.. py:data:: PGROW
+
+   
+
+.. py:data:: PSHRNK
+
+   
+
+.. py:data:: ERRCON
+
+   
+
+.. py:data:: TINY
+   :value: 1e-30
+
+   
+
+.. py:data:: MAXSTP
+   :value: 100000000
+
+   
+
+.. py:data:: KMAXX
+   :value: 8
+
+   
+
+.. py:function:: odeint_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], hmin: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], integ: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float, pulsesuite.libpulsesuite.nrutils.np.ndarray, Callable, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[float, float]], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+   Adaptive-step ODE driver for real double precision.
+
+
+.. py:function:: odeint_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+   Adaptive-step ODE driver for complex double precision.
+
+
+.. py:function:: dummy_jacobian_dp(x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+   Dummy jacobian for real ODEs: returns zero dfdx and zero dfdy.
+
+
+.. py:function:: dummy_jacobian_dpc(x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+   Dummy jacobian for complex ODEs: returns zero dfdx and zero dfdy.
+
+
+.. py:function:: simpleint_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], t2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], simple: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+   Extremely simple integrator (Euler step) for complex ODEs.
+
+
+.. py:function:: simpleint_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], t2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], simple: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+   Extremely simple integrator (Euler step) for complex ODEs.
+
+

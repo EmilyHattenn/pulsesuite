@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pulsesuite.libpulsesuite.integrator &mdash; pulsesuite 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.custom.css?v=7bc2f056" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster.bundle.min.css?v=37217874" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-shadow.min.css?v=6227e517" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-punk.min.css?v=94669e23" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-noir.min.css?v=21a39f42" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-light.min.css?v=a18b2449" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/tooltipster-sideTip-borderless.min.css?v=dbff53e4" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/micromodal.css?v=d7bf34ee" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/sphinx_rtd_theme.css?v=3234e928" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../../_static/documentation_options.js?v=01f34227"></script>
+        <script src="../../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../../../_static/copybutton.js?v=f281be69"></script>
+        <script src="../../../../_static/js/hoverxref.js?v=7ecbeab1"></script>
+        <script src="../../../../_static/js/tooltipster.bundle.min.js?v=18bf091b"></script>
+        <script src="../../../../_static/js/micromodal.min.js?v=04d6302d"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            pulsesuite
+          </a>
+              <div class="version">
+                0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../readme.html">PulseSuite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../integrations.html">Integrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../gallery.html">Examples Gallery</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">pulsesuite</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pulsesuite.libpulsesuite.integrator</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/autoapi/pulsesuite/libpulsesuite/integrator/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-pulsesuite.libpulsesuite.integrator">
+<span id="pulsesuite-libpulsesuite-integrator"></span><h1><a class="hxr-hoverxref hxr-tooltip reference internal" href="#module-pulsesuite.libpulsesuite.integrator" title="pulsesuite.libpulsesuite.integrator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pulsesuite.libpulsesuite.integrator</span></code></a><a class="headerlink" href="#module-pulsesuite.libpulsesuite.integrator" title="Link to this heading">¶</a></h1>
+<section id="integrator-module-python-version">
+<p>High-performance ODE integrators for scientific computing, ported from Fortran.</p>
+<p>Implements: odeint, rkqs, rkck, rk4, idiot, 3D-versions and related routines.</p>
+<p>Author: Rahul R. Sah</p>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.with_guardrails" title="pulsesuite.libpulsesuite.integrator.with_guardrails"><code class="xref py py-obj docutils literal notranslate"><span class="pre">with_guardrails</span></code></a>(fn)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.odeint_dp" title="pulsesuite.libpulsesuite.integrator.odeint_dp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odeint_dp</span></code></a>(...)</p></td>
+<td><p>Adaptive-step ODE driver for real double precision.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.odeint_dpc" title="pulsesuite.libpulsesuite.integrator.odeint_dpc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">odeint_dpc</span></code></a>(...)</p></td>
+<td><p>Adaptive-step ODE driver for complex double precision.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.dummy_jacobian_dp" title="pulsesuite.libpulsesuite.integrator.dummy_jacobian_dp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dummy_jacobian_dp</span></code></a>(...)</p></td>
+<td><p>Zero‐Jacobian for real ODEs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.dummy_jacobian_dpc" title="pulsesuite.libpulsesuite.integrator.dummy_jacobian_dpc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dummy_jacobian_dpc</span></code></a>(...)</p></td>
+<td><p>Zero‐Jacobian for complex ODEs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.simpleint_dp" title="pulsesuite.libpulsesuite.integrator.simpleint_dp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simpleint_dp</span></code></a>(...)</p></td>
+<td><p>Extremely simple integrator (Euler step) for complex ODEs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.simpleint_dpc" title="pulsesuite.libpulsesuite.integrator.simpleint_dpc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">simpleint_dpc</span></code></a>(...)</p></td>
+<td><p>Extremely simple integrator (Euler step) for complex ODEs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.SAFETY" title="pulsesuite.libpulsesuite.integrator.SAFETY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SAFETY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.PGROW" title="pulsesuite.libpulsesuite.integrator.PGROW"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PGROW</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.PSHRNK" title="pulsesuite.libpulsesuite.integrator.PSHRNK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PSHRNK</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.ERRCON" title="pulsesuite.libpulsesuite.integrator.ERRCON"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ERRCON</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.TINY" title="pulsesuite.libpulsesuite.integrator.TINY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TINY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.MAXSTP" title="pulsesuite.libpulsesuite.integrator.MAXSTP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAXSTP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="hxr-hoverxref hxr-tooltip reference internal" href="#pulsesuite.libpulsesuite.integrator.KMAXX" title="pulsesuite.libpulsesuite.integrator.KMAXX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KMAXX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.with_guardrails">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">with_guardrails</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.with_guardrails" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.SAFETY">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">SAFETY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.9</span></em><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.SAFETY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.PGROW">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">PGROW</span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.PGROW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.PSHRNK">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">PSHRNK</span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.PSHRNK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.ERRCON">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">ERRCON</span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.ERRCON" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.TINY">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">TINY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1e-30</span></em><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.TINY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.MAXSTP">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">MAXSTP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">100000000</span></em><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.MAXSTP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.KMAXX">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">KMAXX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.KMAXX" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.odeint_dp">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">odeint_dp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">integ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jacobn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.odeint_dp" title="Link to this definition">¶</a></dt>
+<dd><p>Adaptive-step ODE driver for real double precision.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.odeint_dpc">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">odeint_dpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.complex128</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.odeint_dpc" title="Link to this definition">¶</a></dt>
+<dd><p>Adaptive-step ODE driver for complex double precision.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.dummy_jacobian_dp">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">dummy_jacobian_dp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.dummy_jacobian_dp" title="Link to this definition">¶</a></dt>
+<dd><p>Dummy jacobian for real ODEs: returns zero dfdx and zero dfdy.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.dummy_jacobian_dpc">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">dummy_jacobian_dpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.complex128</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.dummy_jacobian_dpc" title="Link to this definition">¶</a></dt>
+<dd><p>Dummy jacobian for complex ODEs: returns zero dfdx and zero dfdy.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.simpleint_dp">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">simpleint_dp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.complex128</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.simpleint_dp" title="Link to this definition">¶</a></dt>
+<dd><p>Extremely simple integrator (Euler step) for complex ODEs.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pulsesuite.libpulsesuite.integrator.simpleint_dpc">
+<span class="sig-prename descclassname"><span class="pre">pulsesuite.libpulsesuite.integrator.</span></span><span class="sig-name descname"><span class="pre">simpleint_dpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.complex128</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pulsesuite.libpulsesuite.nrutils.Annotated</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simple</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pulsesuite.libpulsesuite.nrutils.Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">pulsesuite.libpulsesuite.nrutils.np.int32</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pulsesuite.libpulsesuite.integrator.simpleint_dpc" title="Link to this definition">¶</a></dt>
+<dd><p>Extremely simple integrator (Euler step) for complex ODEs.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Rahul R. Sah and PulseSuite Developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

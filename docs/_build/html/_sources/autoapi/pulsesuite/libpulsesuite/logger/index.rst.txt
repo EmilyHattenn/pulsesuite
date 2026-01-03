@@ -1,0 +1,175 @@
+:py:mod:`pulsesuite.libpulsesuite.logger`
+=========================================
+
+.. py:module:: pulsesuite.libpulsesuite.logger
+
+.. autoapi-nested-parse::
+
+   Author: Rahul R. Sah
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.logger.Logger
+
+
+
+
+.. py:class:: Logger(logLevel=LOGSTD, output=sys.stdout)
+
+
+   Bases: :py:obj:`contextlib.ContextDecorator`
+
+   High-performance logger for scientific/HPC applications.
+
+   Provides log levels, error/warning/info/debug, and assertion logic.
+   Thread-safe and context-enabled. All methods use camelCase.
+
+   :param logLevel: Initial log level (default: 2 = LOGSTD)
+   :type logLevel: int, optional
+   :param output: Output stream (default: sys.stdout)
+   :type output: file-like, optional
+
+   .. py:attribute:: LOGERROR
+      :value: 0
+
+      
+
+   .. py:attribute:: LOGWARN
+      :value: 1
+
+      
+
+   .. py:attribute:: LOGSTD
+      :value: 2
+
+      
+
+   .. py:attribute:: LOGVERBOSE
+      :value: 3
+
+      
+
+   .. py:attribute:: LOGDEBUG
+      :value: 4
+
+      
+
+   .. py:attribute:: LOGDEBUG2
+      :value: 5
+
+      
+
+   .. py:attribute:: LOGDEBUG3
+      :value: 6
+
+      
+
+   .. py:attribute:: LOGNAMES
+      :value: ['ERROR  ', 'WARNING', 'STD    ', 'VERBOSE', 'DEBUG  ', 'DEBUG2 ', 'DEBUG3 ']
+
+      
+
+   .. py:method:: __enter__()
+
+
+   .. py:method:: __exit__(exc_type, exc_val, exc_tb)
+
+
+   .. py:method:: getInstance()
+      :classmethod:
+
+      Singleton access to the logger.
+
+
+   .. py:method:: setLogLevel(level)
+
+      Set the log level.
+
+
+   .. py:method:: getLogLevel()
+
+      Get the current log level.
+
+
+   .. py:method:: incrLogLevel()
+
+      Increase the log level by 1.
+
+
+   .. py:method:: decrLogLevel()
+
+      Decrease the log level by 1.
+
+
+   .. py:method:: getLogLevelStr(level=None)
+
+      Get the string representation of a log level.
+
+
+   .. py:method:: error(msg, exitCode=1, file=None, line=None)
+
+      Log an error message and exit.
+
+      :param msg: The error message.
+      :type msg: str
+      :param exitCode: Exit code (default: 1)
+      :type exitCode: int, optional
+      :param file: File name for error location.
+      :type file: str, optional
+      :param line: Line number for error location.
+      :type line: int, optional
+
+
+   .. py:method:: assertTrue(test, msg, file=None, line=None)
+
+      Assert that a condition is true, else log error and exit.
+
+      :param test: Condition to check.
+      :type test: bool
+      :param msg: Message to log if assertion fails.
+      :type msg: str
+      :param file: File name for error location.
+      :type file: str, optional
+      :param line: Line number for error location.
+      :type line: int, optional
+
+
+   .. py:method:: warning(msg, file=None, line=None)
+
+      Log a warning message.
+
+
+   .. py:method:: std(msg, file=None, line=None)
+
+      Log a standard message.
+
+
+   .. py:method:: verbose(msg, file=None, line=None)
+
+      Log a verbose message.
+
+
+   .. py:method:: debug(msg, file=None, line=None)
+
+      Log a debug message.
+
+
+   .. py:method:: debug2(msg, file=None, line=None)
+
+      Log a debug2 message.
+
+
+   .. py:method:: debug3(msg, file=None, line=None)
+
+      Log a debug3 message.
+
+
+

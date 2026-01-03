@@ -72,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">PulseSuite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrations.html">Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../gallery.html">Examples Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sbes_example.myst.html">Semiconductor Bloch Equations (SBEs) Solver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coulomb_example.myst.html">Coulomb Interactions in Quantum Wires</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">DC Field Carrier Transport in Quantum Wires</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#theory">Theory</a><ul>
@@ -166,7 +167,7 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">dcfield</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D.dcfield</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">dcfield</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span>
 
 <span class="c1"># Physical Parameters for GaAs Quantum Wire</span>
@@ -193,35 +194,9 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">dcfield</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Physical Parameters for GaAs Quantum Wire</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.SBEs</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">SBEs</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">m_e</span> <span class="k">as</span> <span class="n">me0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prop2QW</span><span class="p">,</span> <span class="n">QWChi1</span><span class="p">,</span> <span class="n">QW2Prop</span><span class="p">,</span> <span class="n">WritePropFields</span><span class="p">,</span> <span class="n">QWPolarization3</span><span class="p">,</span> <span class="n">QWRho5</span><span class="p">,</span> <span class="n">WriteSBESolns</span><span class="p">,</span> <span class="n">InitializeQWOptics</span><span class="p">,</span> <span class="n">Xcv</span><span class="p">,</span> <span class="n">Ycv</span><span class="p">,</span> <span class="n">Zcv</span><span class="p">,</span> <span class="n">yw</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printITR</span><span class="p">,</span> <span class="n">TotalEnergy</span><span class="p">,</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">WriteIt</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalcI0</span><span class="p">,</span> <span class="n">CalcPD</span><span class="p">,</span> <span class="n">CalcVD</span><span class="p">,</span> <span class="n">InitializeDC</span><span class="p">,</span> <span class="n">GetEDrift</span><span class="p">,</span> <span class="n">Transport</span><span class="p">,</span> <span class="n">CalcI0n</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">qwoptics</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">cuda</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printIT</span><span class="p">,</span> <span class="n">printIT2D</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">libpulsesuite.spliner</span><span class="w"> </span><span class="kn">import</span> <span class="n">rescale_1D_dp</span><span class="p">,</span> <span class="n">rescale_1D_dpc</span><span class="p">,</span> <span class="n">rescale_1D</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">c</span> <span class="k">as</span> <span class="n">c0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Physical constants</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;libpulsesuite&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Momentum grid: -4.02e+09 to 3.99e+09 m^-1
+Grid spacing: 3.14e+07 m^-1
+DC field module initialized
 </pre></div>
 </div>
 </div>
@@ -258,16 +233,8 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Initial Electron Distribution (Gaussian centered at k=0)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sigma_k</span> <span class="o">=</span> <span class="mf">2e8</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">n_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k_grid</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma_k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n_e</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n_e</span><span class="p">)</span>  <span class="c1"># Normalize</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Initial Hole Distribution</span>
-
-<span class="ne">NameError</span>: name &#39;k_grid&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Initial electron density: 1.0000
+Initial hole density: 1.0000
 </pre></div>
 </div>
 </div>
@@ -330,15 +297,10 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Output arrays for DC contributions</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">DC_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_k</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">DC_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_k</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Time step and iteration indices</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Electron drift rate: 2.41e+36+0.00e+00j Hz
+Hole drift rate: 1.69e+35+0.00e+00j Hz
+Electron drift velocity: 1.08e-11 m/s
+Hole drift velocity: -2.60e-12 m/s
 </pre></div>
 </div>
 </div>
@@ -365,16 +327,8 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate electron current</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">I_e</span> <span class="o">=</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">CalcI0n</span><span class="p">(</span><span class="n">n_e</span><span class="p">,</span> <span class="n">m_e</span><span class="p">,</span> <span class="n">k_grid</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Electron current: </span><span class="si">{</span><span class="n">I_e</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> A&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Calculate total current (requires interaction matrix structure)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># For this demo, we use a simplified version</span>
-
-<span class="ne">NameError</span>: name &#39;dcfield&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Electron current: -0.00e+00+0.00e+00j A
+Total current: -1.30e-23+0.00e+00j A
 </pre></div>
 </div>
 </div>
@@ -429,19 +383,7 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Electron distribution</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_grid</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">n_e</span><span class="p">),</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f_e(k)$&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wavevector ($10^8$ m$^{-1}$)&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Occupation&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;k_grid&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/4dd83f5bc4e91c315fe121eb60e455842d7bd048d32d567630dc0933559b7dc1.png" src="../_images/4dd83f5bc4e91c315fe121eb60e455842d7bd048d32d567630dc0933559b7dc1.png" />
+<img alt="../_images/efa22556841c40ecb3bdbad44c331343a069f2a5bf6b50326e9ebc2710253b63.png" src="../_images/efa22556841c40ecb3bdbad44c331343a069f2a5bf6b50326e9ebc2710253b63.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -514,22 +456,7 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># FFT-based method</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">DC_e_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_k</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">DC_h_fft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N_k</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">CalcDCE</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">DCTrans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">ky</span><span class="o">=</span><span class="n">k_grid</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">DC</span><span class="o">=</span><span class="n">DC_e_fft</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/3b626126a509171ade91942b7c3dde4258d533c278e111969e4f03b9ea9cdfb5.png" src="../_images/3b626126a509171ade91942b7c3dde4258d533c278e111969e4f03b9ea9cdfb5.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -559,15 +486,10 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate drift velocity from distribution</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">v_e_dist</span> <span class="o">=</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">CalcVD</span><span class="p">(</span><span class="n">k_grid</span><span class="p">,</span> <span class="n">m_e</span><span class="p">,</span> <span class="n">n_e</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">v_h_dist</span> <span class="o">=</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">CalcVD</span><span class="p">(</span><span class="n">k_grid</span><span class="p">,</span> <span class="n">m_h</span><span class="p">,</span> <span class="n">n_h</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Electron drift velocity (from distribution): </span><span class="si">{</span><span class="n">v_e_dist</span><span class="si">:</span><span class="s2">.2e</span><span class="si">}</span><span class="s2"> m/s&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;dcfield&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Electron drift velocity (from distribution): -2.91e-11 m/s
+Hole drift velocity (from distribution): -3.64e-12 m/s
+Electron average momentum: 0.00e+00 kg·m/s
+Hole average momentum: 0.00e+00 kg·m/s
 </pre></div>
 </div>
 </div>
@@ -608,17 +530,7 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate renormalized energies</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">E_e_renorm</span> <span class="o">=</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">EkReNorm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">n_e</span><span class="p">),</span> <span class="n">E_e</span><span class="p">,</span> <span class="n">V_ee</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">E_h_renorm</span> <span class="o">=</span> <span class="n">dcfield</span><span class="o">.</span><span class="n">EkReNorm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">n_h</span><span class="p">),</span> <span class="n">E_h</span><span class="p">,</span> <span class="n">V_hh</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;dcfield&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/8b684b231cf247ff7462bc8009aace217f3d8dd11011742e63bf4dce1229b364.png" src="../_images/8b684b231cf247ff7462bc8009aace217f3d8dd11011742e63bf4dce1229b364.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -637,8 +549,7 @@ F_{drift}(k) = \sum_q \hbar k \cdot \left[ \Gamma_{em}(k,q) - \Gamma_{abs}(k,q) 
 <li><p><strong>Energy renormalization</strong> accounting for many-body effects</p></li>
 <li><p><strong>Phonon-assisted transport</strong> through the drift force calculation</p></li>
 </ol>
-<p>The <code class="docutils literal notranslate"><span class="pre">dcfield</span></code> module provides a comprehensive framework for simulating carrier transport in quantum wires under applied DC fields, including phonon scattering and many-body interactions.
-m</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">dcfield</span></code> module provides a comprehensive framework for simulating carrier transport in quantum wires under applied DC fields, including phonon scattering and many-body interactions.</p>
 </section>
 </section>
 
@@ -653,7 +564,7 @@ m</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Rahul R. Sah and PulseSuite Developers.</p>
+    <p>&#169; Copyright 2026, Rahul R. Sah and PulseSuite Developers.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

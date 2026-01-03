@@ -72,6 +72,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">PulseSuite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrations.html">Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../gallery.html">Examples Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sbes_example.myst.html">Semiconductor Bloch Equations (SBEs) Solver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coulomb_example.myst.html">Coulomb Interactions in Quantum Wires</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcfield_example.myst.html">DC Field Carrier Transport in Quantum Wires</a></li>
 <li class="toctree-l2"><a class="reference internal" href="emission_example.myst.html">Spontaneous Emission and Photoluminescence in Quantum Wires</a></li>
@@ -196,7 +197,7 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">phonons</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D.phonons</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">phonons</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">k</span> <span class="k">as</span> <span class="n">kB</span>
 
 <span class="c1"># Physical Parameters for GaAs Quantum Wire</span>
@@ -229,35 +230,10 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">phonons</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">k</span> <span class="k">as</span> <span class="n">kB</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Physical Parameters for GaAs Quantum Wire</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.SBEs</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">SBEs</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">m_e</span> <span class="k">as</span> <span class="n">me0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prop2QW</span><span class="p">,</span> <span class="n">QWChi1</span><span class="p">,</span> <span class="n">QW2Prop</span><span class="p">,</span> <span class="n">WritePropFields</span><span class="p">,</span> <span class="n">QWPolarization3</span><span class="p">,</span> <span class="n">QWRho5</span><span class="p">,</span> <span class="n">WriteSBESolns</span><span class="p">,</span> <span class="n">InitializeQWOptics</span><span class="p">,</span> <span class="n">Xcv</span><span class="p">,</span> <span class="n">Ycv</span><span class="p">,</span> <span class="n">Zcv</span><span class="p">,</span> <span class="n">yw</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printITR</span><span class="p">,</span> <span class="n">TotalEnergy</span><span class="p">,</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">WriteIt</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalcI0</span><span class="p">,</span> <span class="n">CalcPD</span><span class="p">,</span> <span class="n">CalcVD</span><span class="p">,</span> <span class="n">InitializeDC</span><span class="p">,</span> <span class="n">GetEDrift</span><span class="p">,</span> <span class="n">Transport</span><span class="p">,</span> <span class="n">CalcI0n</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">qwoptics</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">cuda</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printIT</span><span class="p">,</span> <span class="n">printIT2D</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">libpulsesuite.spliner</span><span class="w"> </span><span class="kn">import</span> <span class="n">rescale_1D_dp</span><span class="p">,</span> <span class="n">rescale_1D_dpc</span><span class="p">,</span> <span class="n">rescale_1D</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">c</span> <span class="k">as</span> <span class="n">c0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Physical constants</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;libpulsesuite&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Momentum grid: -2.00e+08 to 2.00e+08 m^-1
+LO Phonon energy: 36.0 meV
+Phonon frequency: 5.47e+13 Hz
+Temperature: 77.0 K
 </pre></div>
 </div>
 </div>
@@ -278,15 +254,9 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Initialize Phonon Module</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">phonons</span><span class="o">.</span><span class="n">InitializePhonons</span><span class="p">(</span><span class="n">ky</span><span class="p">,</span> <span class="n">E_e</span><span class="p">,</span> <span class="n">E_h</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">epsr</span><span class="p">,</span> <span class="n">Gph</span><span class="p">,</span> <span class="n">Oph</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Phonon module initialized&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bose distribution N0: </span><span class="si">{</span><span class="n">phonons</span><span class="o">.</span><span class="n">N00</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;phonons&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Phonon module initialized
+Bose distribution N0: 0.0044
+Vscale factor: 1.52e-21
 </pre></div>
 </div>
 </div>
@@ -342,17 +312,13 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Access the phonon interaction matrices (stored as module-level variables)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">EP</span> <span class="o">=</span> <span class="n">phonons</span><span class="o">.</span><span class="n">_EP</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">HP</span> <span class="o">=</span> <span class="n">phonons</span><span class="o">.</span><span class="n">_HP</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;EP shape: </span><span class="si">{</span><span class="n">EP</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;phonons&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>EP shape: (64, 64)
+HP shape: (64, 64)
+EP range: 0.00e+00 to 1.93e+54
+HP range: 0.00e+00 to 3.34e+53
 </pre></div>
 </div>
+<img alt="../_images/130cd6e6c6bd3f64943da71bab64a124617254a0be4867ef9017e251bdb09035.png" src="../_images/130cd6e6c6bd3f64943da71bab64a124617254a0be4867ef9017e251bdb09035.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -405,18 +371,7 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Extract interaction strength along a cut through the matrix</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Look at transitions from k=0 (center of grid)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">k_center</span> <span class="o">=</span> <span class="n">N_k</span> <span class="o">//</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">EP_cut</span> <span class="o">=</span> <span class="n">EP</span><span class="p">[</span><span class="n">k_center</span><span class="p">,</span> <span class="p">:]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">HP_cut</span> <span class="o">=</span> <span class="n">HP</span><span class="p">[</span><span class="n">k_center</span><span class="p">,</span> <span class="p">:]</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/0a24ed6b4e29746fdf3d45d63941eaac5a56c3535933996a7918ae6e2b78ec6f.png" src="../_images/0a24ed6b4e29746fdf3d45d63941eaac5a56c3535933996a7918ae6e2b78ec6f.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -463,16 +418,10 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Create carrier distributions</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sigma_k</span> <span class="o">=</span> <span class="mf">1e8</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">n_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ky</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma_k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ky</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma_k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">n_e</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n_e</span><span class="p">)</span>  <span class="c1"># Normalize</span>
-
-<span class="ne">NameError</span>: name &#39;ky&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Electron in-scattering rate range: 0.00e+00 to 0.00e+00 s^-1
+Electron out-scattering rate range: 0.00e+00 to 0.00e+00 s^-1
+Hole in-scattering rate range: 0.00e+00 to 0.00e+00 s^-1
+Hole out-scattering rate range: 0.00e+00 to 0.00e+00 s^-1
 </pre></div>
 </div>
 </div>
@@ -511,19 +460,13 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ky</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">Win_e</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;In-scattering&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ky</span><span class="o">/</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">Wout_e</span><span class="p">,</span> <span class="s1">&#39;r--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Out-scattering&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wavevector ($10^8$ m$^{-1}$)&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ky&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_389758/2617775316.py:9: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  ax.set_yscale(&#39;log&#39;)
+/tmp/ipykernel_389758/2617775316.py:19: UserWarning: Data has no positive values, and therefore cannot be log-scaled.
+  ax.set_yscale(&#39;log&#39;)
 </pre></div>
 </div>
-<img alt="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" src="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" />
+<img alt="../_images/72f31115e8d4e8f1eb515fadb272df84e3a9f08585573228ba5e563b0dfdc0d6.png" src="../_images/72f31115e8d4e8f1eb515fadb272df84e3a9f08585573228ba5e563b0dfdc0d6.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -559,19 +502,10 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate phonon coupling constants</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># This requires interaction potential V and dielectric function E1D</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># For this demo, we&#39;ll use simplified arrays</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">V_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N_k</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e-20</span>  <span class="c1"># Simplified interaction potential</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">E1D_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">N_k</span><span class="p">,</span> <span class="n">N_k</span><span class="p">))</span>  <span class="c1"># Simplified dielectric function</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">Cq2_vals</span> <span class="o">=</span> <span class="n">phonons</span><span class="o">.</span><span class="n">Cq2</span><span class="p">(</span><span class="n">ky</span><span class="p">,</span> <span class="n">V_test</span><span class="p">,</span> <span class="n">E1D_test</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cq2 range: 0.00e+00 to 1.52e-41
 </pre></div>
 </div>
+<img alt="../_images/0a3bc7605924b3060ee1a1a36f134b9c2d7ac7c6dba7377f1474d8cdb50ac7b4.png" src="../_images/0a3bc7605924b3060ee1a1a36f134b9c2d7ac7c6dba7377f1474d8cdb50ac7b4.png" />
 </div>
 </div>
 </section>
@@ -620,15 +554,8 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate distribution functions for a range of energies</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">E_range</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">e0</span><span class="p">,</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">e0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Fermi-Dirac distribution (for carriers)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">f_FD</span> <span class="o">=</span> <span class="n">phonons</span><span class="o">.</span><span class="n">FermiDistr</span><span class="p">(</span><span class="n">E_range</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;e0&#39; is not defined
+<img alt="../_images/51d12c195a64c5bd526d03788fc711e7616b183f43e7b5fe85bec5780445b0b0.png" src="../_images/51d12c195a64c5bd526d03788fc711e7616b183f43e7b5fe85bec5780445b0b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bose distribution at phonon energy: 0.0044
 </pre></div>
 </div>
 </div>
@@ -688,20 +615,7 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">for</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="c1"># Update temperature</span>
-<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">phonons</span><span class="o">.</span><span class="n">_Temp</span> <span class="o">=</span> <span class="n">T</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="c1"># Re-initialize to update temperature-dependent arrays</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="n">phonons</span><span class="o">.</span><span class="n">InitializePhonons</span><span class="p">(</span><span class="n">ky</span><span class="p">,</span> <span class="n">E_e</span><span class="p">,</span> <span class="n">E_h</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">epsr</span><span class="p">,</span> <span class="n">Gph</span><span class="p">,</span> <span class="n">Oph</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;phonons&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" src="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" />
+<img alt="../_images/118d72e3910c70aa66ad63699ec6478b05b0566d35f56e2fe9b6ed8a632d999f.png" src="../_images/118d72e3910c70aa66ad63699ec6478b05b0566d35f56e2fe9b6ed8a632d999f.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -763,20 +677,7 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temperatures</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="c1"># Update temperature and re-initialize</span>
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">phonons</span><span class="o">.</span><span class="n">_Temp</span> <span class="o">=</span> <span class="n">T</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">phonons</span><span class="o">.</span><span class="n">InitializePhonons</span><span class="p">(</span><span class="n">ky</span><span class="p">,</span> <span class="n">E_e</span><span class="p">,</span> <span class="n">E_h</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">epsr</span><span class="p">,</span> <span class="n">Gph</span><span class="p">,</span> <span class="n">Oph</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="c1"># Recalculate scattering rates</span>
-
-<span class="ne">NameError</span>: name &#39;phonons&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" src="../_images/93391ace42ff27ec35885c87176f39b0bfa9ce8bc79d030416a48f6ef63f8a0f.png" />
+<img alt="../_images/5ec59a904ac29ee3c3b52e5003802e003e738d55074212f6975d96e1944293fe.png" src="../_images/5ec59a904ac29ee3c3b52e5003802e003e738d55074212f6975d96e1944293fe.png" />
 </div>
 </div>
 </section>
@@ -899,7 +800,7 @@ N_0 = \frac{1}{\exp(\hbar\omega_{ph} / k_B T) - 1}
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Rahul R. Sah and PulseSuite Developers.</p>
+    <p>&#169; Copyright 2026, Rahul R. Sah and PulseSuite Developers.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

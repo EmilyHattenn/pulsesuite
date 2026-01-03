@@ -71,6 +71,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../readme.html">PulseSuite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../integrations.html">Integrations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../gallery.html">Examples Gallery</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sbes_example.myst.html">Semiconductor Bloch Equations (SBEs) Solver</a></li>
 <li class="toctree-l2"><a class="reference internal" href="coulomb_example.myst.html">Coulomb Interactions in Quantum Wires</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dcfield_example.myst.html">DC Field Carrier Transport in Quantum Wires</a></li>
 <li class="toctree-l2"><a class="reference internal" href="emission_example.myst.html">Spontaneous Emission and Photoluminescence in Quantum Wires</a></li>
@@ -201,7 +202,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">qwoptics</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D.qwoptics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">qwoptics</span>
 
 <span class="c1"># Physical parameters (GaAs quantum wire)</span>
 <span class="n">L_wire</span> <span class="o">=</span> <span class="mf">100e-9</span>        <span class="c1"># Wire length: 100 nm</span>
@@ -239,35 +240,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">hbar</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">pulsesuite.PSTD3D</span><span class="w"> </span><span class="kn">import</span> <span class="n">qwoptics</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Physical parameters (GaAs quantum wire)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">L_wire</span> <span class="o">=</span> <span class="mf">100e-9</span>        <span class="c1"># Wire length: 100 nm</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.SBEs</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">SBEs</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">m_e</span> <span class="k">as</span> <span class="n">me0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.qwoptics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Prop2QW</span><span class="p">,</span> <span class="n">QWChi1</span><span class="p">,</span> <span class="n">QW2Prop</span><span class="p">,</span> <span class="n">WritePropFields</span><span class="p">,</span> <span class="n">QWPolarization3</span><span class="p">,</span> <span class="n">QWRho5</span><span class="p">,</span> <span class="n">WriteSBESolns</span><span class="p">,</span> <span class="n">InitializeQWOptics</span><span class="p">,</span> <span class="n">Xcv</span><span class="p">,</span> <span class="n">Ycv</span><span class="p">,</span> <span class="n">Zcv</span><span class="p">,</span> <span class="n">yw</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printITR</span><span class="p">,</span> <span class="n">TotalEnergy</span><span class="p">,</span> <span class="n">Temperature</span><span class="p">,</span> <span class="n">WriteIt</span><span class="p">,</span> <span class="n">locator</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.dcfield</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalcI0</span><span class="p">,</span> <span class="n">CalcPD</span><span class="p">,</span> <span class="n">CalcVD</span><span class="p">,</span> <span class="n">InitializeDC</span><span class="p">,</span> <span class="n">GetEDrift</span><span class="p">,</span> <span class="n">Transport</span><span class="p">,</span> <span class="n">CalcI0n</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">hardisk</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">pulsesuite</span><span class="o">/</span><span class="n">PSTD3D</span><span class="o">/</span><span class="n">qwoptics</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">21</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">cuda</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.usefulsubs</span><span class="w"> </span><span class="kn">import</span> <span class="n">FFTG</span><span class="p">,</span> <span class="n">iFFTG</span><span class="p">,</span> <span class="n">printIT</span><span class="p">,</span> <span class="n">printIT2D</span><span class="p">,</span> <span class="n">GetArray0Index</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="kn">from</span><span class="w"> </span><span class="nn">libpulsesuite.spliner</span><span class="w"> </span><span class="kn">import</span> <span class="n">rescale_1D_dp</span><span class="p">,</span> <span class="n">rescale_1D_dpc</span><span class="p">,</span> <span class="n">rescale_1D</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">e0</span><span class="p">,</span> <span class="n">c</span> <span class="k">as</span> <span class="n">c0_SI</span><span class="p">,</span> <span class="n">hbar</span> <span class="k">as</span> <span class="n">hbar_SI</span><span class="p">,</span> <span class="n">epsilon_0</span> <span class="k">as</span> <span class="n">eps0_SI</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># Physical constants</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;libpulsesuite&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Propagation domain: -500.0 to 500.0 nm
+Wire domain: -50.0 to 50.0 nm
+Momentum grid: -1.00 to 1.00 (10^8 m^-1)
 </pre></div>
 </div>
 </div>
@@ -304,16 +279,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Calculate quantum wire window function</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">qwoptics</span><span class="o">.</span><span class="n">CalcQWWindow</span><span class="p">(</span><span class="n">r_wire</span><span class="p">,</span> <span class="n">L_wire</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Access the window (stored in module-level variable)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Note: In actual usage, this is set by InitializeQWOptics</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">window</span> <span class="o">=</span> <span class="n">qwoptics</span><span class="o">.</span><span class="n">_QWWindow</span>
-
-<span class="ne">NameError</span>: name &#39;qwoptics&#39; is not defined
+<img alt="../_images/e216196ba88a524b5d422f27e9d43def22927006b75576e8883815765b0060e7.png" src="../_images/e216196ba88a524b5d422f27e9d43def22927006b75576e8883815765b0060e7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Window function: exp(-(r/(L/2))^150)
+Window is 1 inside wire, decays rapidly outside
 </pre></div>
 </div>
 </div>
@@ -377,29 +345,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Initialize QW optics module</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># This sets up window function, phase factors, and dipole matrices</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">qwoptics</span><span class="o">.</span><span class="n">InitializeQWOptics</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">RR</span><span class="o">=</span><span class="n">r_wire</span><span class="p">,</span>      <span class="c1"># Spatial coordinate array</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">L</span><span class="o">=</span><span class="n">L_wire</span><span class="p">,</span>       <span class="c1"># Wire length</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">dcv</span><span class="o">=</span><span class="n">dcv</span><span class="p">,</span>        <span class="c1"># Dipole moment</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">kr</span><span class="o">=</span><span class="n">kr</span><span class="p">,</span>          <span class="c1"># Momentum coordinate array</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">Qr</span><span class="o">=</span><span class="n">Qr</span><span class="p">,</span>          <span class="c1"># Momentum array (for compatibility)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">Ee</span><span class="o">=</span><span class="n">Ee</span><span class="p">,</span>          <span class="c1"># Electron energies</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">Eh</span><span class="o">=</span><span class="n">Eh</span><span class="p">,</span>          <span class="c1"># Hole energies</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">ehint</span><span class="o">=</span><span class="n">ehint</span><span class="p">,</span>    <span class="c1"># Electron-hole overlap integral</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="n">area</span><span class="o">=</span><span class="n">area</span><span class="p">,</span>      <span class="c1"># Wire area</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">gap</span><span class="o">=</span><span class="n">gap</span>         <span class="c1"># Band gap (for compatibility)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;QW optics module initialized&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dipole matrices shape: </span><span class="si">{</span><span class="n">qwoptics</span><span class="o">.</span><span class="n">_Xcv0</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;qwoptics&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>QW optics module initialized
+Dipole matrices shape: (64, 64)
+Phase factor matrices shape: (64, 128)
+Window function length: 128
 </pre></div>
 </div>
+<img alt="../_images/d9d1ca831b38f70ce1933be31c9fd5f55aa144e1f960135b54229713e5beb756.png" src="../_images/d9d1ca831b38f70ce1933be31c9fd5f55aa144e1f960135b54229713e5beb756.png" />
 </div>
 </div>
 </section>
@@ -477,18 +429,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">100e-9</span>  <span class="c1"># Pulse width: 100 nm</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">center</span> <span class="o">=</span> <span class="mf">0.0</span>     <span class="c1"># Pulse center</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">Ex_prop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">R_prop</span> <span class="o">-</span> <span class="n">center</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Ey_prop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Ex_prop</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">Ez_prop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">Ex_prop</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;R_prop&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Field projection complete
+Fields are now in momentum space (after FFT)
+Ex_wire shape: (128,), dtype: complex128
 </pre></div>
 </div>
+<img alt="../_images/2af01bc49a5f46413275c9a786e45a0b715c36f9f5526a124c54fe9eef92c5e7.png" src="../_images/2af01bc49a5f46413275c9a786e45a0b715c36f9f5526a124c54fe9eef92c5e7.png" />
 </div>
 </div>
 </section>
@@ -590,18 +536,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Create a simple coherence matrix (electron-hole coherence)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># In real simulations, this comes from solving the SBEs</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">p_cv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_k</span><span class="p">,</span> <span class="n">N_k</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Create a simple Gaussian coherence centered at k=0</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">k_center</span> <span class="o">=</span> <span class="n">N_k</span> <span class="o">//</span> <span class="mi">2</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/astavak/.pyenv/versions/3.10.16/envs/venv3.10/lib/python3.10/site-packages/numba_cuda/numba/cuda/dispatcher.py:690: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(errors.NumbaPerformanceWarning(msg))
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polarization calculation complete
+Polarization arrays shape: (128,)
+Px magnitude range: 5.96e-28 to 1.89e-12
+</pre></div>
+</div>
+<img alt="../_images/35ec1bb58b82acf90d3d9839b6dc84a9345fb5d96cef95781795b6f0141b72f6.png" src="../_images/35ec1bb58b82acf90d3d9839b6dc84a9345fb5d96cef95781795b6f0141b72f6.png" />
 </div>
 </div>
 </section>
@@ -690,18 +634,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Create coherence matrices (electron-electron and hole-hole)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># In real simulations, these come from solving the SBEs</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">CC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_k</span><span class="p">,</span> <span class="n">N_k</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>  <span class="c1"># Electron-electron coherence</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">DD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N_k</span><span class="p">,</span> <span class="n">N_k</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>  <span class="c1"># Hole-hole coherence</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Create simple diagonal coherence (carriers at k=0)</span>
-
-<span class="ne">NameError</span>: name &#39;N_k&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/astavak/.pyenv/versions/3.10.16/envs/venv3.10/lib/python3.10/site-packages/numba_cuda/numba/cuda/dispatcher.py:690: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.
+  warn(errors.NumbaPerformanceWarning(msg))
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Charge density calculation complete
+Electron density range: 5.59e-09 to 6.81e+06 m^-3
+Hole density range: 5.59e-09 to 6.81e+06 m^-3
+</pre></div>
+</div>
+<img alt="../_images/815bf8c507e2cb0d6767f31296f19d4922078c5fb497c3a126c74c7a309b8933.png" src="../_images/815bf8c507e2cb0d6767f31296f19d4922078c5fb497c3a126c74c7a309b8933.png" />
 </div>
 </div>
 </section>
@@ -799,17 +741,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Prepare arrays for propagation space outputs</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Pxx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">R_prop</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">Pyy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">R_prop</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">Pzz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">R_prop</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;R_prop&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Field projection to propagation space complete
 </pre></div>
 </div>
+<img alt="../_images/ebffe73af785375733846d6551c469547e623f38d9d2596da1f3eab248737b3d.png" src="../_images/ebffe73af785375733846d6551c469547e623f38d9d2596da1f3eab248737b3d.png" />
 </div>
 </div>
 </section>
@@ -893,18 +828,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Wavelength range for susceptibility calculation</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">wavelengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">600e-9</span><span class="p">,</span> <span class="mf">1000e-9</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>  <span class="c1"># 600-1000 nm</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">dky</span> <span class="o">=</span> <span class="n">kr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">kr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Momentum step</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">geh</span> <span class="o">=</span> <span class="mf">1e12</span>  <span class="c1"># Electron-hole dephasing rate (1/s)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Calculate susceptibility for each wavelength</span>
-
-<span class="ne">NameError</span>: name &#39;kr&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Susceptibility calculation complete
+Susceptibility range: 4.80e-10 to 1.33e-09
 </pre></div>
 </div>
+<img alt="../_images/5fca51de3d38d36928827096f10c88b792ecac9276560b1fe71049f4c2c62ea8.png" src="../_images/5fca51de3d38d36928827096f10c88b792ecac9276560b1fe71049f4c2c62ea8.png" />
+<img alt="../_images/4cbf70c975cd781569cf08c402de2a914d76666090f2c0efb124f03e584b0879.png" src="../_images/4cbf70c975cd781569cf08c402de2a914d76666090f2c0efb124f03e584b0879.png" />
 </div>
 </div>
 </section>
@@ -1063,7 +992,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Rahul R. Sah and PulseSuite Developers.</p>
+    <p>&#169; Copyright 2026, Rahul R. Sah and PulseSuite Developers.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

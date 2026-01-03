@@ -1,0 +1,257 @@
+:py:mod:`pulsesuite.libpulsesuite.materialproperties`
+=====================================================
+
+.. py:module:: pulsesuite.libpulsesuite.materialproperties
+
+.. autoapi-nested-parse::
+
+   Author: Rahul R. Sah
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.materialproperties.MaterialProperties
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.materialproperties.with_guardrails
+   pulsesuite.libpulsesuite.materialproperties.n0_sellmeier
+   pulsesuite.libpulsesuite.materialproperties.MaterialOptions
+   pulsesuite.libpulsesuite.materialproperties.MatHelp
+   pulsesuite.libpulsesuite.materialproperties.mat_error_handler
+   pulsesuite.libpulsesuite.materialproperties.verify_G
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.materialproperties.w2l
+   pulsesuite.libpulsesuite.materialproperties.l2w
+   pulsesuite.libpulsesuite.materialproperties.c0
+   pulsesuite.libpulsesuite.materialproperties.eps0
+   pulsesuite.libpulsesuite.materialproperties.pi
+   pulsesuite.libpulsesuite.materialproperties.twopi
+
+
+.. py:function:: with_guardrails(fn)
+
+
+.. py:data:: w2l
+
+   
+
+.. py:data:: l2w
+
+   
+
+.. py:data:: c0
+
+   
+
+.. py:data:: eps0
+
+   
+
+.. py:data:: pi
+
+   
+
+.. py:data:: twopi
+
+   
+
+.. py:function:: n0_sellmeier(A: float, B: numpy.ndarray, C: numpy.ndarray, lam: float) -> float
+
+   Pure Sellmeier index formula:
+       n0 = sqrt(sum(B * lam^2/(lam^2 - C)) + A)
+   Clamped to 1.0 if NaN, <1.0, or >1e100.
+
+
+.. py:exception:: MaterialError
+
+
+   Bases: :py:obj:`Exception`
+
+   Custom exception for material property errors.
+
+
+.. py:class:: MaterialProperties(databasefile: str = 'materials_py.ini')
+
+
+   Port of the Fortran `materialproperties` module.
+
+   Preserves all original routines and naming conventions.
+
+   .. py:attribute:: MAT_ERR_NOERROR
+      :value: 0
+
+      
+
+   .. py:attribute:: MAT_ERR_NOFILE
+      :value: 1
+
+      
+
+   .. py:attribute:: MAT_ERR_NOTFOUND
+      :value: 2
+
+      
+
+   .. py:attribute:: MAT_ERR_FILE_FORMAT
+      :value: 3
+
+      
+
+   .. py:attribute:: MAT_ERR_OUTOFRANGE
+      :value: 4
+
+      
+
+   .. py:attribute:: MAT_ERR_BADVALUE
+      :value: 5
+
+      
+
+   .. py:attribute:: MAT_ERR_DEFAULTUSED
+      :value: 6
+
+      
+
+   .. py:method:: alpha(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> Annotated[float, numpy.float64]
+
+      Linear absorption coefficient. Mirrors Fortran `alpha`.
+
+      :param mat:
+      :type mat: str
+      :param lam:
+      :type lam: float, np.float64
+      :param err:
+      :type err: int, optional
+
+      :rtype: float
+
+
+   .. py:method:: beta(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: dn_dl(mat: str, lam: float, err: Optional[int] = None) -> float
+
+
+   .. py:method:: ddn_dll(mat: str, lam: float, err: Optional[int] = None) -> float
+
+
+   .. py:method:: n0(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+      Refractive index: tries Sellmeier, falls back to discrete lookup.
+
+
+   .. py:method:: index_of_refraction(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+      Alias for n0(): more Pythonic name for the refractive index.
+
+
+   .. py:method:: n2I(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: n2F(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: Vp(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k0(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: Vg(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k1(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k2(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k3(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k4(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k5(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: k1_l(mat: str, lam: float, err: Optional[int] = None) -> float
+
+
+   .. py:method:: k2_l(mat: str, lam: float, err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetKW(mat: str, W: Annotated[numpy.ndarray, numpy.float64], err: Optional[int] = None) -> numpy.ndarray
+
+      Fortran GetKW: Kw[i] = 2π * n0(λ[i]) / λ[i], with λ = w2l(W).
+
+
+   .. py:method:: Tr(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+      Raman response: discrete lookup with default=0 if not found.
+
+
+   .. py:method:: GetPlasmaElectronMass(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaBandGap(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaTrappingTime(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaCollisionTime(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaMaximumDensity(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaOrder(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+   .. py:method:: GetPlasmaCrossSection(mat: str, lam: Annotated[float, numpy.float64], err: Optional[int] = None) -> float
+
+
+
+.. py:function:: MaterialOptions(opt: str) -> bool
+
+   Parse one command-line option.
+   Returns True if handled (i.e. started with --material-datafile=).
+
+
+.. py:function:: MatHelp()
+
+   Print help for the material-datafile flag.
+
+
+.. py:function:: mat_error_handler(err: int, param: str, mat: str, lam: float)
+
+   Map error codes to warnings or exceptions.
+
+
+.. py:function:: verify_G(mat: str, lam: Annotated[float, numpy.float64]) -> None
+
+   Run finite-difference checks on the internal dispersion kernels,
+   mirroring the Fortran verify_G subroutine.
+
+

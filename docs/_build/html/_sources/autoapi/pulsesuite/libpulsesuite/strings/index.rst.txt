@@ -1,0 +1,123 @@
+:py:mod:`pulsesuite.libpulsesuite.strings`
+==========================================
+
+.. py:module:: pulsesuite.libpulsesuite.strings
+
+.. autoapi-nested-parse::
+
+   Author: Rahul R. Sah
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.strings.Strings
+
+
+
+
+.. py:class:: Strings
+
+
+   High-performance string utilities for scientific computing.
+
+   Provides conversion between numbers and strings, word wrapping, trimming, and case conversion.
+   All methods use camelCase. Context-enabled for future extensibility.
+
+   .. py:method:: int2str(i: int, n: Optional[int] = None) -> str
+      :staticmethod:
+
+      Convert integer to string, optionally with fixed width.
+
+      :param i: Integer to convert.
+      :type i: int
+      :param n: Fixed width for output string.
+      :type n: int, optional
+
+      :returns: String representation of integer.
+      :rtype: str
+
+
+   .. py:method:: bool2str(x: bool, n: Optional[int] = None) -> str
+      :staticmethod:
+
+      Convert boolean to string ('T' or 'F'), optionally with fixed width.
+
+      :param x: Boolean value.
+      :type x: bool
+      :param n: Fixed width for output string.
+      :type n: int, optional
+
+      :returns: String representation ('T' or 'F').
+      :rtype: str
+
+
+   .. py:method:: dbl2str(x: float, p: int = 5, e: int = 3, frmt: str = 'ES') -> str
+      :staticmethod:
+
+      Convert double to string using scientific format.
+
+      :param x: Value to convert.
+      :type x: float
+      :param p: Precision.
+      :type p: int
+      :param e: Exponent length.
+      :type e: int
+      :param frmt: Format specifier ('ES', 'EN', 'E', 'D').
+      :type frmt: str
+
+      :returns: String representation.
+      :rtype: str
+
+
+   .. py:method:: sgl2str(x: float, p: int = 5, e: int = 3, frmt: str = 'ES') -> str
+      :staticmethod:
+
+      Convert single precision float to string using scientific format.
+
+
+   .. py:method:: wordwrap(s: str, n: int = 80) -> List[str]
+      :staticmethod:
+
+      Wrap text to lines of maximum length n.
+
+      :param s: Input string.
+      :type s: str
+      :param n: Maximum line length.
+      :type n: int
+
+      :returns: List of wrapped lines.
+      :rtype: List[str]
+
+
+   .. py:method:: trimb(x: str) -> str
+      :staticmethod:
+
+      Trim spaces off both ends of a string.
+
+
+   .. py:method:: toupper(s: str) -> str
+      :staticmethod:
+
+      Convert string to upper case.
+
+
+   .. py:method:: tolower(s: str) -> str
+      :staticmethod:
+
+      Convert string to lower case.
+
+
+   .. py:method:: cmplx2str(z: complex, p: int = 5, e: int = 3) -> str
+      :staticmethod:
+
+      Convert complex number to string using dbl2str for real and imaginary parts.
+
+
+

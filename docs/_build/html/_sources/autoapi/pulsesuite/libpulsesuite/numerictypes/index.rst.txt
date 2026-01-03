@@ -1,0 +1,104 @@
+:py:mod:`pulsesuite.libpulsesuite.numerictypes`
+===============================================
+
+.. py:module:: pulsesuite.libpulsesuite.numerictypes
+
+.. autoapi-nested-parse::
+
+   Numeric type aliases for high-performance scientific computing, matching Fortran kind parameters, using NumPy.
+
+   Author: Rahul R. Sah
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.numerictypes.NumericTypes
+
+
+
+
+.. py:class:: NumericTypes
+
+
+   Provides high-performance numeric type aliases matching Fortran kind parameters using NumPy.
+
+   .. attribute:: i8b
+
+      64-bit integer type.
+
+      :type: Type[np.int64]
+
+   .. attribute:: i4b
+
+      32-bit integer type.
+
+      :type: Type[np.int32]
+
+   .. attribute:: i2b
+
+      16-bit integer type.
+
+      :type: Type[np.int16]
+
+   .. attribute:: i1b
+
+      8-bit integer type.
+
+      :type: Type[np.int8]
+
+   .. attribute:: sp
+
+      Single precision (32-bit) floating point type.
+
+      :type: Type[np.float32]
+
+   .. attribute:: dp
+
+      Double precision (64-bit) floating point type.
+
+      :type: Type[np.float64]
+
+   .. attribute:: qp
+
+      Quad precision (128-bit) floating point type, or double if unavailable.
+
+      :type: Type[np.floating]
+
+   .. py:attribute:: i8b
+      :type: Type[numpy.int64]
+
+      
+
+   .. py:attribute:: i4b
+      :type: Type[numpy.int32]
+
+      
+
+   .. py:attribute:: i2b
+      :type: Type[numpy.int16]
+
+      
+
+   .. py:attribute:: i1b
+      :type: Type[numpy.int8]
+
+      
+
+   .. py:attribute:: sp
+      :type: Type[numpy.float32]
+
+      
+
+   .. py:attribute:: dp
+      :type: Type[numpy.float64]
+
+      
+
+

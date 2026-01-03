@@ -1,0 +1,494 @@
+:py:mod:`pulsesuite.libpulsesuite.dumps`
+========================================
+
+.. py:module:: pulsesuite.libpulsesuite.dumps
+
+.. autoapi-nested-parse::
+
+   Integrator module (Python version)
+   ==================================
+   High-performance ODE integrators for scientific computing, ported from Fortran.
+
+   Dependencies: numpy, numba, logger, nrutils, constants, helpers
+
+   Implements: odeint, rkqs, rkck, rk4, idiot, 3D-versions and related routines.
+
+   Author: @Rahul_Ranjan_Sah
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.dumps.Integrator
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.dumps.with_guardrails
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pulsesuite.libpulsesuite.dumps.SAFETY
+   pulsesuite.libpulsesuite.dumps.PGROW
+   pulsesuite.libpulsesuite.dumps.PSHRNK
+   pulsesuite.libpulsesuite.dumps.ERRCON
+   pulsesuite.libpulsesuite.dumps.TINY
+   pulsesuite.libpulsesuite.dumps.MAXSTP
+   pulsesuite.libpulsesuite.dumps.KMAXX
+
+
+.. py:function:: with_guardrails(fn)
+
+
+.. py:data:: SAFETY
+   :value: 0.9
+
+   
+
+.. py:data:: PGROW
+
+   
+
+.. py:data:: PSHRNK
+
+   
+
+.. py:data:: ERRCON
+
+   
+
+.. py:data:: TINY
+   :value: 1e-30
+
+   
+
+.. py:data:: MAXSTP
+   :value: 100000000
+
+   
+
+.. py:data:: KMAXX
+   :value: 8
+
+   
+
+.. py:class:: Integrator(logger=None)
+
+
+   High-performance ODE integrator class for scientific computing.
+   Implements adaptive step-size Runge-Kutta and related methods.
+
+   .. py:method:: odeint_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], hmin: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], integ: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float, pulsesuite.libpulsesuite.nrutils.np.ndarray, Callable, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[float, float]], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Adaptive-step ODE driver for real double precision.
+
+
+   .. py:method:: odeint_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], hmin: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], integ: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float, pulsesuite.libpulsesuite.nrutils.np.ndarray, Callable, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[float, float]], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Adaptive-step ODE driver for complex double precision.
+
+      :param y: On entry: y at x1; on exit: y at x2 (in-place).
+      :type y: ndarray[complex128]
+      :param x1: Interval endpoints.
+      :type x1: float64
+      :param x2: Interval endpoints.
+      :type x2: float64
+      :param eps: Desired local error tolerance.
+      :type eps: float64
+      :param h1: Initial trial step size.
+      :type h1: float64
+      :param hmin: Minimum allowable step size.
+      :type hmin: float64
+      :param D: Complex derivative function.
+      :type D: Callable[[float, ndarray], ndarray]
+      :param integ: Single-step integrator.
+      :type integ: Callable[[ndarray, ndarray, float, float, float, ndarray, Callable, Callable], Tuple[float, float]]
+      :param jacobn: Jacobian evaluator.
+      :type jacobn: Callable[[float, ndarray], Tuple[ndarray, ndarray]]
+
+
+   .. py:method:: dummy_jacobian_dp(x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Dummy jacobian for real ODEs: returns zero dfdx and zero dfdy.
+
+      :param x: Independent variable (unused).
+      :type x: float64
+      :param y: Dependent variable vector.
+      :type y: ndarray[float64]
+
+      :returns: * **dfdx** (*ndarray[float64]*) -- Zero vector of same shape as y.
+                * **dfdy** (*ndarray[float64,2]*) -- Zero matrix of shape (n, n).
+
+
+   .. py:method:: dummy_jacobian_dpc(x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Dummy jacobian for complex ODEs: returns zero dfdx and zero dfdy.
+
+      :param x: Independent variable (unused).
+      :type x: float64
+      :param y: Dependent variable vector.
+      :type y: ndarray[complex128]
+
+      :returns: * **dfdx** (*ndarray[complex128]*) -- Zero vector of same shape as y.
+                * **dfdy** (*ndarray[complex128,2]*) -- Zero matrix of shape (n, n).
+
+
+   .. py:method:: simpleint_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], t1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], t2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], simple: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Extremely simple integrator (Euler step) for real ODEs.
+
+
+   .. py:method:: simpleint_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], t2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], simple: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Extremely simple integrator (Euler step) for complex ODEs.
+
+
+   .. py:method:: rkqs_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yscale: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float]
+
+      Adaptive Runge-Kutta step control (Cash-Karp) for real ODEs.
+
+      :param y: Current solution vector (modified in-place to next step).
+      :type y: ndarray[float64]
+      :param dydt: Derivative at current t.
+      :type dydt: ndarray[float64]
+      :param t: Independent variable (modified in-place).
+      :type t: float64
+      :param htry: Initial trial step size.
+      :type htry: float64
+      :param eps: Desired local error tolerance.
+      :type eps: float64
+      :param yscale: Scaling vector for each component.
+      :type yscale: ndarray[float64]
+      :param D: Derivative function f(t, y).
+      :type D: Callable[[float, ndarray], ndarray]
+      :param jacobn: Jacobian evaluator (unused here).
+      :type jacobn: Callable[[float, ndarray], Tuple[ndarray, ndarray]]
+
+      :returns: * **y** (*ndarray[float64]*) -- Updated solution at t + hdid.
+                * **t** (*float64*) -- Updated independent variable.
+                * **hdid** (*float64*) -- Actual step size taken.
+                * **hnext** (*float64*) -- Suggested next step size.
+
+
+   .. py:method:: rkqs_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yscale: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float]
+
+      Adaptive Runge-Kutta step control (Cash-Karp) for complex ODEs.
+
+      Parameters and returns mirror rkqs_dp but for complex128 data.
+
+
+   .. py:method:: rkck_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Cash-Karp step: computes yout and error estimate yerr for real ODEs.
+
+      :param y: Current solution vector.
+      :type y: ndarray[float64]
+      :param dydt: Derivative at current t.
+      :type dydt: ndarray[float64]
+      :param t: Independent variable.
+      :type t: float64
+      :param h: Step size.
+      :type h: float64
+      :param D: Derivative function f(t, y).
+      :type D: Callable[[float, ndarray], ndarray]
+
+      :returns: * **yout** (*ndarray[float64]*) -- Fourth-order solution estimate at t+h.
+                * **yerr** (*ndarray[float64]*) -- Error estimate between fourth and fifth order.
+
+
+   .. py:method:: rkck_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Cash-Karp step: computes yout and error estimate yerr for complex ODEs.
+
+
+   .. py:method:: rk4_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]
+
+      Classical RK4 step for real ODEs.
+
+      :param y: Current solution vector.
+      :type y: ndarray[float64]
+      :param dydt: Derivative at current t.
+      :type dydt: ndarray[float64]
+      :param t: Independent variable.
+      :type t: float64
+      :param h: Step size.
+      :type h: float64
+      :param D: Derivative function f(t, y).
+      :type D: Callable[[float, ndarray], ndarray]
+
+      :returns: * **yout** (*ndarray[float64]*) -- Updated solution at t+h.
+                * **tnew** (*float64*) -- Updated independent variable.
+
+
+   .. py:method:: rk4_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]
+
+      Classical RK4 step for complex ODEs.
+
+      Parameters and returns mirror rk4_dp but for complex128 data.
+
+
+   .. py:method:: idiot_dp(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]
+
+      Simple Euler step for real ODEs: y += dydt * h; t += h.
+
+      :param y: Solution vector (modified in-place).
+      :type y: ndarray[float64]
+      :param dydt: Derivative at current t.
+      :type dydt: ndarray[float64]
+      :param t: Independent variable.
+      :type t: float64
+      :param h: Step size.
+      :type h: float64
+      :param D: Derivative function (unused here).
+      :type D: Callable[[float, ndarray], ndarray]
+
+      :returns: * **yout** (*ndarray[float64]*) -- Updated solution vector.
+                * **tnew** (*float64*) -- Updated independent variable.
+
+
+   .. py:method:: idiot_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]
+
+      Simple Euler step for complex ODEs: y += dydt * h; t += h.
+
+      Same parameters and returns as idiot_dp but complex128.
+
+
+   .. py:method:: bsstep(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yscale: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float]
+
+      Bulirsch-Stoer step for real ODEs (bsstep).
+
+      :param y: Current solution vector (in-out).
+      :type y: ndarray[float64]
+      :param dydx: Derivative at current x.
+      :type dydx: ndarray[float64]
+      :param x: Independent variable (in-out).
+      :type x: float64
+      :param htry: Initial trial step size.
+      :type htry: float64
+      :param eps: Desired local error tolerance.
+      :type eps: float64
+      :param yscale: Scaling vector for error control.
+      :type yscale: ndarray[float64]
+      :param D: Derivative function f(x, y).
+      :type D: Callable[[float, ndarray], ndarray]
+      :param jacobn: Jacobian evaluator (unused).
+      :type jacobn: Callable[[float, ndarray], Tuple[ndarray, ndarray]]
+
+      :returns: * **yout** (*ndarray[float64]*) -- Updated solution at x + hdid.
+                * **hdid** (*float64*) -- Actual step size taken.
+                * **hnext** (*float64*) -- Suggested next step size.
+
+      .. rubric:: Notes
+
+      This routine implements the modified midpoint and Richardson extrapolation
+      sequence (`mmid` and `pzextr`), along with step-size control as in the Fortran code.
+
+
+   .. py:method:: mmid(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], xs: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htot: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], nstep: pulsesuite.libpulsesuite.nrutils.Annotated[int, None], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.np.ndarray
+
+      Modified midpoint method for Bulirsch-Stoer sequence.
+
+      :param y: Initial solution vector.
+      :type y: ndarray[float64]
+      :param dydx: Derivative at xs.
+      :type dydx: ndarray[float64]
+      :param xs: Starting independent variable value.
+      :type xs: float64
+      :param htot: Total step size.
+      :type htot: float64
+      :param nstep: Number of substeps.
+      :type nstep: int
+      :param D: Derivative function f(x, y).
+      :type D: Callable[[float, ndarray], ndarray]
+
+      :returns: **yout** -- Estimate after htot total step.
+      :rtype: ndarray[float64]
+
+
+   .. py:method:: pzextr(iest: pulsesuite.libpulsesuite.nrutils.Annotated[int, None], xest: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yest: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], yz: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dy: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Polynomial extrapolation (Richardson) for Bulirsch-Stoer.
+
+      :param iest: Sequence index.
+      :type iest: int
+      :param xest: Extrapolation parameter (h/n)^2.
+      :type xest: float64
+      :param yest: Current midpoint estimate.
+      :type yest: ndarray[float64]
+      :param yz: Accumulated extrapolated values (in-out).
+      :type yz: ndarray[float64]
+      :param dy: Extrapolation increments (in-out).
+      :type dy: ndarray[float64]
+
+      :returns: * **yz_new** (*ndarray[float64]*) -- Updated extrapolated values.
+                * **dy_new** (*ndarray[float64]*) -- New increment values.
+
+
+   .. py:method:: simpr(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dydx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dfdx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], dfdy: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], xs: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htot: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], nstep: pulsesuite.libpulsesuite.nrutils.Annotated[int, None], derivs: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.np.ndarray
+
+      Semi-implicit predictor-corrector integrator.
+
+      :param y: Initial solution.
+      :type y: ndarray[float64]
+      :param dydx: First derivative at xs.
+      :type dydx: ndarray[float64]
+      :param dfdx: Derivative of f w.r.t x at xs.
+      :type dfdx: ndarray[float64]
+      :param dfdy: Jacobian matrix of f w.r.t y at xs.
+      :type dfdy: ndarray[float64]
+      :param xs: Starting independent variable.
+      :type xs: float64
+      :param htot: Total step size.
+      :type htot: float64
+      :param nstep: Number of substeps.
+      :type nstep: int
+      :param derivs: Derivative function f(x, y).
+      :type derivs: Callable[[float, ndarray], ndarray]
+
+      :returns: **yout** -- Solution at xs + htot.
+      :rtype: ndarray[float64]
+
+
+   .. py:method:: stifbs(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.np.float64], dydx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.np.float64], x: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yscal: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.np.float64], derivs: Callable[[float, pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64]], pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64]], jacobn: Callable[[float, pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64]], pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.NDArray[pulsesuite.libpulsesuite.nrutils.np.float64]]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64]]
+
+      Bulirsch–Stoer stiff‐ODE stepper (Fortran `stifbs`).
+
+      :param y:
+      :type y: float64[:]  – on input, current solution; on output, advanced by hdid
+      :param dydx:
+      :type dydx: float64[:]  – derivative at x
+      :param x:
+      :type x: float64     – independent variable (returned updated)
+      :param htry:
+      :type htry: float64     – initial trial step size
+      :param eps:
+      :type eps: float64     – desired accuracy
+      :param yscal:
+      :type yscal: float64[:]  – error‐scaling array
+      :param derivs:
+      :type derivs: (x, y) → dydx
+      :param jacobn:
+      :type jacobn: (x, y) → (dfdx, dfdy)
+
+      :returns: * **xnew** (*float64     – x + hdid*)
+                * **hdid** (*float64     – actual step length used*)
+                * **hnext** (*float64     – estimated next step size*)
+
+
+   .. py:method:: ludcmp(a: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], indx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32]) -> float
+
+      LU decomposition with partial pivoting, in place.
+
+      :param a: Input matrix to decompose; replaced by LU factors.
+      :type a: ndarray[float64, 2D]
+      :param indx: Output pivot indices.
+      :type indx: ndarray[int32]
+
+      :returns: **d** -- +1 or -1 depending on number of row interchanges.
+      :rtype: float64
+
+      :raises RuntimeError: If matrix is singular.
+
+
+   .. py:method:: lubksb(a: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], indx: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32], b: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64]) -> None
+
+      Solve Ly = b, then Ux = y using LU factors from ludcmp.
+
+      :param a: LU-decomposed matrix from ludcmp.
+      :type a: ndarray[float64, 2D]
+      :param indx: Pivot indices from ludcmp.
+      :type indx: ndarray[int32]
+      :param b: Right-hand side vector; replaced by solution.
+      :type b: ndarray[float64]
+
+
+   .. py:method:: odeint_3D_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], hmin: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], integ: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, float, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[float, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Adaptive-step driver for 3D complex fields.
+
+      :param y: Input: field at x1; Output: at x2 (in-place).
+      :type y: ndarray[complex128], shape (nx, ny, nz)
+      :param x1: Interval endpoints.
+      :type x1: float64
+      :param x2: Interval endpoints.
+      :type x2: float64
+      :param eps: Desired local error tolerance.
+      :type eps: float64
+      :param h1: Initial step size (in-out to return last used hprev).
+      :type h1: float64
+      :param hmin: Minimum allowable step size.
+      :type hmin: float64
+      :param D: Derivative function D(t, y).
+      :type D: Callable[[float, ndarray], ndarray]
+      :param integ: Integrator subroutine returning (hdid, hnext).
+      :type integ: Callable[[ndarray, ndarray, float, float, ndarray, float, float], Tuple[float, float]]
+
+      :returns: * **y** (*ndarray[complex128]*) -- Final field at x2.
+                * **nok** (*int32*) -- Number of successful steps.
+                * **nbad** (*int32*) -- Number of rejected steps.
+
+
+   .. py:method:: rkqs_3D_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], yscale: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float]
+
+      Adaptive RKQS for 3D complex ODEs.
+
+
+   .. py:method:: rkck_3D_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray]
+
+      Cash-Karp RK step for 3D complex arrays.
+
+
+   .. py:method:: rk4_3D_dpc(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], h: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float]
+
+      Classical RK4 for 3D complex ODEs.
+
+
+   .. py:method:: odeint_3D_dpc_TOM(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], x1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], x2: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.complex128, pulsesuite.libpulsesuite.nrutils.np.complex128], h1: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], hmin: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray], integ: Callable[[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float, pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.ndarray, Callable], pulsesuite.libpulsesuite.nrutils.Tuple[float, float]]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.int32, pulsesuite.libpulsesuite.nrutils.np.int32]
+
+      Adaptive-step driver for 3D complex fields considering real and imaginary error scales.
+
+      :param y: Field array, shape (nx,ny,nz); modified in-place from x1 to x2.
+      :type y: ndarray[complex128]
+      :param x1: Interval endpoints.
+      :type x1: float64
+      :param x2: Interval endpoints.
+      :type x2: float64
+      :param eps: Desired complex error tolerance (real & imag).
+      :type eps: complex128
+      :param h1: Initial step size (in-out to return last used hprev).
+      :type h1: float64
+      :param hmin: Minimum allowable step size.
+      :type hmin: float64
+      :param D: Derivative function D(t, y).
+      :type D: Callable[[float, ndarray], ndarray]
+      :param integ: Integrator returning (hdid, hnext) using separate real/imag scaling.
+      :type integ: Callable[[ndarray, ndarray, float, float, ndarray, ndarray, Callable], Tuple[float,float]]
+
+      :returns: * **y** (*ndarray[complex128]*) -- Final field at x2.
+                * **nok** (*int32*) -- Number of successful steps.
+                * **nbad** (*int32*) -- Number of rejected steps.
+
+
+   .. py:method:: rkqs_3D_dpc_TOM(y: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], dydt: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.complex128], t: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], htry: pulsesuite.libpulsesuite.nrutils.Annotated[float, pulsesuite.libpulsesuite.nrutils.np.float64], eps: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.complex128, pulsesuite.libpulsesuite.nrutils.np.complex128], yscaleREAL: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], yscaleIMAG: pulsesuite.libpulsesuite.nrutils.Annotated[pulsesuite.libpulsesuite.nrutils.np.ndarray, pulsesuite.libpulsesuite.nrutils.np.float64], D: Callable[[float, pulsesuite.libpulsesuite.nrutils.np.ndarray], pulsesuite.libpulsesuite.nrutils.np.ndarray]) -> pulsesuite.libpulsesuite.nrutils.Tuple[pulsesuite.libpulsesuite.nrutils.np.ndarray, float, float]
+
+      Adaptive Cash-Karp RK step for 3D complex ODEs with real/imag scaling.
+
+      Parameters and returns mirror odeint_3D_dpc_TOM but for a single step.
+
+
+
